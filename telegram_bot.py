@@ -6,7 +6,7 @@ import json
 
 BYPASSED_DOMAINS_FILE = 'bypassed_domains.json' # This path should be directed to a JSON file that can store your list of domains to bypass
 BOT_TOKEN = 'XXXXX:XXXXXXX:XXXXXX:XXX' # This should be your Telegram Bot Token or API key
-CHAT_ID = '-1001966413753' # This is the ID of the chat you want the bot monitor. See https://api.telegram.org/bot<YourBOTToken>/getUpdates
+CHAT_ID = '1234567890' # This is the ID of the chat you want the bot monitor. See https://api.telegram.org/bot<YourBOTToken>/getUpdates
 
 ### ONLY CHANGE THE THREE CONSTANTS ABOVE THIS LINE ###
 
