@@ -37,6 +37,11 @@ The Paywall Buster Bot is a Telegram bot that helps users bypass paywalls on spe
 - `/add_domain <domain>`: Add a domain to the list of domains you want to bypass.
 - `/list_domains`: List the currently bypassed domains.
 
+## How It Works
+1. Send a link from a domain to the bot in a chat room.
+2. The bot checks if the domain is in the list of bypassed domains.
+3. If the domain is allowed, the bot shortens the link using 12ft.io and provides a paywall-bypass link.
+
 ## Free Hosting Options
 Your Telegram bot can only monitor for links while the `telegram_bot.py` file is running. You can leave the bot running on your own computer, or just run the Python file when you need the bot. Both of these options are a bit tedious and don't work well when you want the bot to work for other people in your Telegram group. You could rent server space and have your bot run there, but there is typically a cost associated with this. I've outlined below how you can host your bot for free, with certain limitations. 
 
@@ -48,3 +53,13 @@ Your Telegram bot can only monitor for links while the `telegram_bot.py` file is
 Your Telegram bot should now be running and you can close the webpage. You may have to occasionally revisit Python Anywhere to start your bot again if you make updates or there is scheduled maintenance.
 > **Note**  
 > For free accounts on Python Anywhere, there is a storage and CPU usage limit. Once you have maxed out your CPU usage of 100 seconds, the bot will continue to run but with decreased processor priority. This limit is reset every 24 hours. You can view your remaining usage on your dashboard.
+
+## Contributing
+Contributions are welcome! If you find a bug or have an idea for an enhancement, feel free to open an issue or submit a pull request.
+
+## License
+This project is licensed under the MIT License.
+
+## Acknowledgements
+- [Telegram Bot API](https://core.telegram.org/bots/api)
+- [12ft.io](https://12ft.io/)
