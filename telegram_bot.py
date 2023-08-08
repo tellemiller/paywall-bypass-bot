@@ -1,6 +1,7 @@
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 import json
+import re
 
 ### ONLY CHANGE THE THREE CONSTANTS BELOW THIS LINE ###
 
@@ -58,12 +59,14 @@ def list_domains(update: Update, context: CallbackContext) -> None:
 
 def process_message(update: Update, context: CallbackContext) -> None:
     message = update.message.text
-    for domain in BYPASSED_DOMAINS:
-        if domain in message:
-            original_url = message
-            shortened_url = shorten_url(original_url)
-            context.bot.send_message(chat_id=CHAT_ID, text="Here is the bypass link:\n" + shortened_url)
-            break
+    url_match = re.search(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', message)
+    if url_match:
+        original_url = url_match.group()
+        for domain in BYPASSED_DOMAINS:
+            if domain in original_url:
+                shortened_url = shorten_url(original_url)
+                context.bot.send_message(chat_id=CHAT_ID, text="Here is the bypass link:\n" + shortened_url)
+                break
 
 if __name__ == '__main__':
     BYPASSED_DOMAINS = load_allowed_domains()
